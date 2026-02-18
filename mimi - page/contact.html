@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Контакты — mimi</title>
+  <meta name="description" content="Контакты mimi: Instagram, Telegram, WhatsApp. Начнём с короткого сообщения." />
+  <link rel="stylesheet" href="mimi.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+  <style>
+    :root{
+        --navH: 64px;
+      --page-accent: rgba(91,44,255,.12);
+      --page-accent2: rgba(0,194,255,.12);
+    }
+
+
+    .side-actions{ margin-top: 14px; }
+
+
+
+    .content{
+      min-width: 0;
+      padding: 22px 0 70px;}
+
+    .page-hero{ padding: 18px; }
+    .page-hero .shell{
+      border-radius: 36px;
+      border: 1px solid rgba(15,23,42,.08);
+      box-shadow: 0 24px 80px rgba(2,6,23,.10);
+      overflow:hidden;
+      background:
+        radial-gradient(900px 520px at 18% 12%, var(--page-accent), transparent 60%),
+        radial-gradient(760px 460px at 82% 18%, var(--page-accent2), transparent 62%),
+        linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.72));
+    }
+    .page-hero .band{
+      position:relative;
+      min-height: 220px;
+      background: #e9edf7;
+      overflow:hidden;
+    }
+    .page-hero .band img{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      object-fit: cover;
+      object-position: center 44%;
+      transform: scale(1.02);
+    }
+    .page-hero .band::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(2,6,23,.10), rgba(2,6,23,.00) 55%, rgba(2,6,23,.18));
+      pointer-events:none;
+    }
+    .page-hero .water{
+      position:absolute; inset:0;
+      display:flex; align-items:flex-end;
+      padding: 18px 22px;
+      pointer-events:none;
+      mix-blend-mode: soft-light;
+    }
+    .page-hero .water span{
+      font-size: clamp(34px, 6vw, 72px);
+      font-weight: 950;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.55);
+      line-height: .9;
+      white-space: nowrap;
+    }
+    .page-hero .body{ padding: 26px; }
+    .page-hero h1{
+      margin:0;
+      font-size: clamp(28px, 3.0vw, 48px);
+      line-height: 1.06;
+      letter-spacing: -0.6px;
+      font-weight: 950;
+      color: rgba(11,13,18,.96);
+    }
+    .page-hero p{
+      margin: 10px 0 0;
+      color: rgba(11,13,18,.62);
+      line-height: 1.75;
+      font-size: 15px;
+      max-width: 78ch;
+    }
+
+    .contact-grid{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+    }
+    .cardx{
+      grid-column: span 6;
+      border-radius: 22px;
+      border: 1px solid rgba(15,23,42,.08);
+      background: rgba(255,255,255,.78);
+      box-shadow: 0 12px 40px rgba(2,6,23,.06);
+      padding: 18px;
+      transition: transform 220ms cubic-bezier(.2,.8,.2,1), border-color 220ms cubic-bezier(.2,.8,.2,1), box-shadow 220ms cubic-bezier(.2,.8,.2,1);
+    }
+    .cardx:hover{
+      transform: translateY(-3px);
+      border-color: rgba(91,44,255,.22);
+      box-shadow: 0 18px 60px rgba(2,6,23,.10);
+    }
+    .cardx h3{
+      margin:0;
+      font-size: 12px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: rgba(11,13,18,.82);
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    .cardx h3 i{ font-size: 16px; }
+    .cardx .v{
+      margin-top: 10px;
+      font-weight: 900;
+      letter-spacing:-.2px;
+      color: rgba(11,13,18,.92);
+    }
+    .cardx .d{
+      margin-top: 8px;
+      color: rgba(11,13,18,.62);
+      line-height: 1.7;
+      font-size: 13.5px;
+    }
+    .cardx .actions{
+      margin-top: 12px;
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .mini-note{
+      margin-top: 14px;
+      color: rgba(11,13,18,.50);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+
+
+    @media (max-width: 980px){
+      .cardx{ grid-column: span 12; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="grain"></div>
+  <div class="page">
+
+   <!-- LEFT SIDEBAR (desktop) -->
+    <aside class="side" aria-label="Основная навигация">
+      <div class="side-card">
+        <div class="text11">
+          <div class="logo logo--mimi" aria-label="mimi">
+              <span>m</span><span>i</span><span>m</span><span>i</span>
+            </div>
+          <div class="side-title">Minimise Marketing Agency</div>
+        </div>
+        
+
+        <nav class="side-nav">
+          <a href="index.html"><i class="bi bi-house" aria-hidden="true"></i><span>Главная</span></a>
+          <a href="about.html" aria-current="page"><i class="bi bi-info-circle" aria-hidden="true"></i><span>О нас</span></a>
+          <a href="services.html"><i class="bi bi-grid" aria-hidden="true"></i><span>Услуги</span></a>
+          <a href="work.html"><i class="bi bi-images" aria-hidden="true"></i><span>Бренд</span></a>
+          <a href="contact.html"><i class="bi bi-chat-dots" aria-hidden="true"></i><span>Контакты</span></a>
+        </nav>
+
+        <a class="pill-mini" href="contact.html">
+          <span class="dot" aria-hidden="true"></span>
+          <span>связаться</span>
+        </a>
+      </div>
+    </aside>
+
+  <main class="content">
+    <section class="page-hero">
+      <div class="shell">
+        <div class="band" aria-hidden="true">
+          <img src="img/bg3.jpg" alt="" loading="eager" decoding="async">
+          <div class="water"><span>CONTACT</span></div>
+        </div>
+
+        <div class="body">
+          <div class="kicker"><i aria-hidden="true"></i> коротко • по делу</div>
+          <h1>Напишите. Мы ответим <span class="accent">точно</span>.</h1>
+          <p>
+            Запишитесь к нам на консультацию, посетите наш офис. Дальше: вопросы, план, решение.
+          </p>
+
+          <div class="contact-grid">
+            <div class="cardx">
+              <h3><i class="bi bi-instagram" aria-hidden="true"></i> Instagram</h3>
+              <div class="v">@mimi.agency.tj</div>
+              <div class="d">Для быстрых обсуждений и кейсов.</div>
+              <div class="actions">
+                <a class="btn" href="https://instagram.com/mimi.agency.tj" target="_blank" rel="noreferrer">
+                  Открыть <span class="arrow" aria-hidden="true"><i class="bi bi-arrow-right"></i></span>
+                </a>
+              </div>
+            </div>
+
+            <div class="cardx">
+              <h3><i class="bi bi-facebook" aria-hidden="true"></i> Facebook</h3>
+              <div class="v">Mimi marketing agency</div>
+              <div class="d">Самый быстрый канал для старта.</div>
+              <div class="actions">
+                <a class="btn" href="https://www.facebook.com/profile.php?id=61586084697099" target="_blank" rel="noreferrer">
+                  Написать <span class="arrow" aria-hidden="true"><i class="bi bi-send"></i></span>
+                </a>
+              </div>
+            </div>
+
+            <div class="cardx">
+              <h3><i class="bi bi-whatsapp" aria-hidden="true"></i> WhatsApp</h3>
+              <div class="v">wa.me/992070217755</div>
+              <div class="d">Если удобнее голосом/в переписке.</div>
+              <div class="actions">
+                <a class="btn" href="https://wa.me/992070217755" target="_blank" rel="noreferrer">
+                  Написать <span class="arrow" aria-hidden="true"><i class="bi bi-arrow-right"></i></span>
+                </a>
+              </div>
+            </div>
+
+            <div class="cardx">
+              <h3><i class="bi bi-envelope" aria-hidden="true"></i> Email</h3>
+              <div class="v">mimi.marketing.agency.tj@mail.ru</div>
+              <div class="d">Для брифов и документов.</div>
+              <div class="actions">
+                <a class="btn" href="mailto:mimi.marketing.agency.tj@mail.ru">
+                  Отправить <span class="arrow" aria-hidden="true"><i class="bi bi-arrow-right"></i></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OFFICE -->
+<section class="office" aria-label="Наш офис" data-reveal="up">
+  <div class="office-shell">
+    <header class="office-head">
+      <div>
+        <div class="kicker"><i aria-hidden="true"></i>наш офис</div>
+        <h2 class="office-title">Заходите к нам</h2>
+        <p class="office-sub">
+          Живое знакомство быстрее превращает хаос в план. Покажем подход, процессы и как мы строим рост без шума.
+        </p>
+
+        <div class="office-meta">
+          <div class="office-meta-row">
+            <i class="bi bi-geo-alt" aria-hidden="true"></i>
+            <span><b>Адрес:</b> Таджикистан, Душанбе, Улица Айни 21/17</span>
+          </div>
+          <div class="office-meta-row">
+            <i class="bi bi-clock" aria-hidden="true"></i>
+            <span><b>Время:</b> Пн–Пт 9:00–17:00</span>
+          </div>
+        </div>
+
+        <div class="office-actions">
+          <a class="btn btn-primary" target="_blank" rel="noreferrer"
+             href="https://www.google.com/maps?q=%D0%A2%D0%B0%D0%B4%D0%B6%D0%B8%D0%BA%D0%B8%D1%81%D1%82%D0%B0%D0%BD%2C%20%D0%94%D1%83%D1%88%D0%B0%D0%BD%D0%B1%D0%B5%2C%20%D0%A3%D0%BB%D0%B8%D1%86%D0%B0%20%D0%90%D0%B9%D0%BD%D0%B8%2021%2F17">
+            Открыть карту
+            <span class="arrow" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12h12" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+                <path d="M13 6l6 6-6 6" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
+
+          <a class="btn" href="https://wa.me/992070217755" target="_blank" rel="noreferrer">
+            Написать в WhatsApp <span class="arrow" aria-hidden="true"><i class="bi bi-arrow-right"></i></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="office-note">
+        <div class="office-note-title">Офис как часть бренда</div>
+        <div class="office-note-text">
+          Мы любим детали: свет, материалы, чистоту и порядок. Это та же премиальная планка, что и в маркетинге.
+        </div>
+      </div>
+    </header>
+
+    <!-- Mosaic gallery -->
+    <div class="office-mosaic" aria-label="Фотографии офиса">
+      <figure class="office-shot office-shot--hero">
+        <img src="img/office1.jpg" alt="Офис Mimi — зона работы" loading="lazy" decoding="async">
+      </figure>
+
+      <figure class="office-shot office-shot--a">
+        <img src="img/office2.jpg" alt="Офис Mimi — детали" loading="lazy" decoding="async">
+      </figure>
+
+      <figure class="office-shot office-shot--b">
+        <img src="img/office3.jpg" alt="Офис Mimi — переговорная" loading="lazy" decoding="async">
+      </figure>
+
+    </div>
+  </div>
+</section>
+
+      <!-- X DIAGONAL BRAND -->
+<section class="x-diagonal">
+
+  <div class="x-line line-2">
+    <div class="x-text">
+      mimi • marketing • branding • design • web • strategy • growth •
+      mimi • marketing • branding • design • web • strategy • growth •
+    </div>
+  </div>
+
+</section>
+  </main>
+</div>
+
+
+  <nav class="bottom-nav" data-nav="bottom" aria-label="Нижнее меню">
+    <div class="wrap">
+      <a class="bnav-link" href="index.html" aria-label="Главная"><i class="bi bi-house" aria-hidden="true"></i><p>Главная</p></a>
+      <a class="bnav-link" href="about.html" aria-label="О нас"><i class="bi bi-info-circle" aria-hidden="true"></i><p>О нас</p></a>
+      <a class="bnav-link" href="services.html" aria-label="Услуги"><i class="bi bi-grid" aria-hidden="true"></i><p>Услуги</p></a>
+      <a class="bnav-link" href="work.html" aria-label="Бренд"><i class="bi bi-images" aria-hidden="true"></i><p>Бренд</p></a>
+      <a class="bnav-link" href="contact.html" aria-label="Контакты"><i class="bi bi-chat-dots" aria-hidden="true"></i><p>Контакты</p></a>
+    </div>
+  </nav>
+
+
+    <!-- FOOTER (dark, clean) -->
+<footer class="mimi-footer" role="contentinfo">
+  <div class="mimi-footer__inner">
+    <!-- LEFT -->
+    <div class="mimi-footer__brand">
+      <div class="mimi-footer__headline">
+        Minimise the noise <br>
+        Maximise the <br>  
+        impact<span class="mimi-footer__reg">®</span>
+      </div>
+
+      <div class="mimi-footer__logo" aria-label="mimi">
+        <div class="logo logo--mimi">
+          <span>m</span><span>i</span><span>m</span><span>i</span>
+        </div>
+      </div>
+
+      <div class="mimi-footer__copy">
+        © <span id="year"></span> MINIMISE MARKETING AGENCY
+      </div>
+    </div>
+
+    <!-- ADDRESS -->
+    <div class="mimi-footer__col">
+      <div class="mimi-footer__title">ADDRESS</div>
+
+      <div class="mimi-footer__lines">
+        <a class="mimi-footer__link" href="mailto:mimi.marketing.agency.tj@mail.ru">mimi.marketing.agency.tj@mail.ru</a><br>
+        <a class="mimi-footer__link" href="https://wa.me/000000000000" target="_blank" rel="noreferrer">+992 07 021 77 55</a><br>
+        Таджикистан, Душанбе<br>
+        Улица Айни 21/17
+      </div>
+
+      <a class="mimi-footer__maplink"
+         href="https://www.google.com/maps?q=%D0%A2%D0%B0%D0%B4%D0%B6%D0%B8%D0%BA%D0%B8%D1%81%D1%82%D0%B0%D0%BD%2C%20%D0%94%D1%83%D1%88%D0%B0%D0%BD%D0%B1%D0%B5%2C%20%D0%A3%D0%BB%D0%B8%D1%86%D0%B0%20%D0%90%D0%B9%D0%BD%D0%B8%2021%2F17"
+         target="_blank" rel="noreferrer">
+        НА КАРТЕ <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+      </a>
+    </div>
+
+    <!-- PAGES -->
+    <div class="mimi-footer__col">
+      <div class="mimi-footer__title">PAGES</div>
+      <nav class="mimi-footer__nav" aria-label="Навигация в футере">
+        <a href="index.html">Главная</a>
+        <a href="about.html">О нас</a>
+        <a href="services.html">Услуги</a>
+        <a href="work.html">Бренд</a>
+        <a href="contact.html">Контакты</a>
+      </nav>
+    </div>
+
+    <!-- SOCIAL -->
+    <div class="mimi-footer__col mimi-footer__col--right">
+      <div class="mimi-footer__title">FOLLOW US</div>
+
+      <div class="mimi-footer__socials" aria-label="Социальные сети">
+        <a class="mimi-footer__social" href="https://instagram.com/mimi.agency.tj" target="_blank" rel="noreferrer" aria-label="Instagram">
+          <i class="bi bi-instagram" aria-hidden="true"></i>
+        </a>
+        <a class="mimi-footer__social" href="https://www.facebook.com/profile.php?id=61586084697099" target="_blank" rel="noreferrer" aria-label="Facebook">
+          <i class="bi bi-facebook" aria-hidden="true"></i>
+        </a>
+        <a class="mimi-footer__social" href="https://wa.me/992070217755" target="_blank" rel="noreferrer" aria-label="WhatsApp">
+          <i class="bi bi-whatsapp" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAP (same dark section, under footer) -->
+  <div class="mimi-footer__mapwrap" aria-label="Карта">
+    <div class="mimi-footer__maphead">
+      <div class="mimi-footer__title">MAP</div>
+      <a class="mimi-footer__maplink"
+         href="https://www.google.com/maps?q=%D0%A2%D0%B0%D0%B4%D0%B6%D0%B8%D0%BA%D0%B8%D1%81%D1%82%D0%B0%D0%BD%2C%20%D0%94%D1%83%D1%88%D0%B0%D0%BD%D0%B1%D0%B5%2C%20%D0%A3%D0%BB%D0%B8%D1%86%D0%B0%20%D0%90%D0%B9%D0%BD%D0%B8%2021%2F17"
+         target="_blank" rel="noreferrer">
+        ПОСМОТРЕТЬ НА - GOOGLE MAPS <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+      </a>
+    </div>
+
+    <div class="mimi-footer__map">
+      <iframe
+        title="mimi — Таджикистан, Душанбе, Улица Айни 21/17"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=%D0%A2%D0%B0%D0%B4%D0%B6%D0%B8%D0%BA%D0%B8%D1%81%D1%82%D0%B0%D0%BD%2C%20%D0%94%D1%83%D1%88%D0%B0%D0%BD%D0%B1%D0%B5%2C%20%D0%A3%D0%BB%D0%B8%D1%86%D0%B0%20%D0%90%D0%B9%D0%BD%D0%B8%2021%2F17&output=embed">
+      </iframe>
+    </div>
+
+        <div class="mimi-wall" aria-hidden="true">
+      <span>mimi mimi mimi mimi mimi mimi mimi mimi mimi mimi mimi mimi mimi mimi mimi mimi </span>
+      <span>mimi mimi mimi mimi mimi mimi mimi mimi mimi mimi mimi mimi mimi mimi mimi mimi </span>
+    </div>
+  </div>
+</footer>
+
+<!-- Lightbox (добавь ОДИН РАЗ в конец каждой страницы, перед </body>) -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" type="button" aria-label="Закрыть">×</button>
+  <img class="lightbox-img" alt="">
+</div>
+
+  <script src="reveal.js"></script>
+</body>
+</html>
+
